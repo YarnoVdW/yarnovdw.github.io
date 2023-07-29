@@ -3,13 +3,25 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  static const String routeName = '/';
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Home + test 2'),
+        child: Container(
+            // full border
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 8,
+              ),
+            ),
+            child: Column(
+              children: [
+                Text("Yarno Van de Weyer"),
+                Text("Full Stack Developer"),
+              ],
+            )
+        ),
       ),
     );
   }
