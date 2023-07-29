@@ -54,6 +54,7 @@ class HomePage extends StatelessWidget {
                         children: <Widget>[
                           Icon(Icons.email, color: Theme.of(context).colorScheme.onSecondaryContainer),
                           const Text("yarnovandeweyer2@hotmail.com")
+
                         ],
                       ),
                     ],
