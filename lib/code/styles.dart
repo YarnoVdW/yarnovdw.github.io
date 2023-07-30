@@ -11,6 +11,9 @@ class Styles {
     fontWeight: FontWeight.normal,
     fontFamily: 'Proxima Nova',
   );
+  static TextStyle smallTextWhite = defaultTextStyle.copyWith(fontSize: 12, color: Color(0xFFDAE7CA));
+  static TextStyle smallText = defaultTextStyle.copyWith(fontSize: 12);
+
 
   static const TextStyle defaultTitleTextStyle = TextStyle(
     color: defaultBlack,
