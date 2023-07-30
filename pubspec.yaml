@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  font_awesome_flutter: ^10.5.0
 
 dev_dependencies:
   flutter_test:
@@ -90,7 +91,6 @@ flutter:
     - family: Proxima nova
       fonts:
         - asset: assets/fonts/ProximaNova-Regular.otf
-        - asset: assets/fonts/ProximaNova-Bold.otf
           weight: 700
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

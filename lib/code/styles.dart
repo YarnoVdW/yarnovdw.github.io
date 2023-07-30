@@ -18,12 +18,14 @@ class Styles {
     fontWeight: FontWeight.bold,
     fontFamily: 'Proxima Nova',
   );
+  static TextStyle defaultTitleWhite = defaultTitleTextStyle.copyWith(color: Colors.white);
 
   static const TextStyle defaultSubtitleTextStyle = TextStyle(
     color: defaultBlack,
     fontSize: 20,
-    fontWeight: FontWeight.bold,
   );
+
+  static TextStyle defaultSubtitleWhite = defaultSubtitleTextStyle.copyWith(color: Colors.white);
 
   static const TextStyle defaultBodyTextStyle = TextStyle(
     color: defaultBlack,

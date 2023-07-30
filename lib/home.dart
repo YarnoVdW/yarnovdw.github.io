@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/code/styles.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,20 +30,25 @@ class HomePage extends StatelessWidget {
                     children: [
                       const Text("Yarno Van de Weyer",
                           style: Styles.defaultTitleTextStyle),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.tertiaryContainer,
-                            border: Border.all(
-                              color: Theme.of(context).colorScheme.onSecondaryContainer,
-                              width: 1,
+
+                      SizedBox(
+                        width: 220,
+                        height: 60,
+                        child: Center(
+                          child: Card(
+                            shadowColor:
+                                Theme.of(context).colorScheme.secondaryContainer,
+                            color: Theme.of(context).colorScheme.secondary,
+                            elevation: 10,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("Full Stack Developer",
+                                  style: Styles.defaultSubtitleWhite),
                             ),
                           ),
-                          child: Text("Full Stack Developer",
-                              style: Styles.defaultTextStyle.copyWith(color: Theme.of(context).colorScheme.onSecondaryContainer)),
                         ),
                       ),
+
                       // thin line as divider
                       Container(
                         width: MediaQuery.of(context).size.width * 0.30,
@@ -50,11 +56,59 @@ class HomePage extends StatelessWidget {
                         color:
                             Theme.of(context).colorScheme.onSecondaryContainer,
                       ),
-                       Row(
-                        children: <Widget>[
-                          Icon(Icons.email, color: Theme.of(context).colorScheme.onSecondaryContainer),
-                          const Text("yarnovandeweyer2@hotmail.com")
-
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(Icons.email,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                              const Text("yarnovandeweyer2@hotmail.com")
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(Icons.phone,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                              const Text("+32 484 52 40 24")
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(Icons.cast_for_education,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                              const Text("Karel de Grote - Antwerpen")
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              FaIcon(FontAwesomeIcons.github,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                              FaIcon(FontAwesomeIcons.linkedin,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                              FaIcon(FontAwesomeIcons.instagram,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                            ],
+                          ),
                         ],
                       ),
                     ],
