@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/code/pages/about_page.dart';
 import 'package:portfolio/code/styles.dart';
 
 class HomePage extends StatelessWidget {
@@ -191,7 +192,7 @@ class _MainInfoWidgetState extends State<MainInfoWidget> {
     Widget? page;
     switch (selectedIndex) {
       case 0:
-        page = const Text("Page 1");
+        page = const AboutPage();
         break;
       case 1:
         page = const Text("Page 2");
