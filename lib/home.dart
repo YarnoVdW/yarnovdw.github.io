@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/code/pages/about_page.dart';
+import 'package:portfolio/code/pages/experience_page.dart';
 import 'package:portfolio/code/styles.dart';
 
 class HomePage extends StatelessWidget {
@@ -198,7 +199,7 @@ class _MainInfoWidgetState extends State<MainInfoWidget> {
         page = const Text("Page 2");
         break;
       case 2:
-        page = const Text("Page 3");
+        page = const ExperiencePage();
         break;
       default:
         page = const Text("Page 1");

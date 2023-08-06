@@ -25,7 +25,7 @@ class AboutPage extends StatelessWidget {
           SizedBox(
             width: 400,
             child: Text(
-              'I am a software engineer with 10 years of experience in the industry. I have worked on a variety of projects, including mobile apps, web apps, and desktop apps. I am currently working as a freelancer, but I am looking for a full-time position.',
+              'I\'m currently studying applied information technologies at KdG university in Antwerp. My skills include Java, ASP .NET Core, EF, React Native and much more! Whenever I am not studying for school you will probably find me in the woods on my mountainbike or behind my laptop learning new computer languages.',
               style: Styles.defaultTextStyle,
             ),
           ),
@@ -37,30 +37,56 @@ class AboutPage extends StatelessWidget {
           VerticalDevider(),
           SizedBox(height: 10),
           SizedBox(
-            width: 400,
+            width: 800,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Flutter'),
-                      ),
-                    ),
-                    Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Dart'),
-                      ),
-                    ),
+                    SkillBox(skillName: 'Flutter',),
+                    SkillBox(skillName: 'React')
                   ],
                 ),
-                Row(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SkillBox(skillName: '.NET CORE',),
+                    SkillBox(skillName: 'JAVA')
+                  ],
+                ),
               ],
             )
           ),
         ],
+      ),
+    );
+  }
+}
+
+class SkillBox extends StatelessWidget {
+  final String skillName;
+  const SkillBox({
+    super.key, required this.skillName,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300,
+      height: 150,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(skillName, style: Styles.defaultSubtitleTextStyle),
+            ],
+          ),
+        ),
       ),
     );
   }
