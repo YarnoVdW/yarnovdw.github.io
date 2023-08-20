@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/code/pages/about_page.dart';
+import 'package:portfolio/code/pages/contact_me_page.dart';
 import 'package:portfolio/code/pages/experience_page.dart';
 import 'package:portfolio/code/styles.dart';
 
@@ -24,11 +25,18 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       children: [
-                        const SizedBox(
+                         SizedBox(
                           width: 180,
                           height: 150,
                           child: Card(
                             elevation: 10,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.asset(
+                                'profilePic.png',
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
                           ),
                         ),
                         const Text("Yarno Van de Weyer",
@@ -133,21 +141,12 @@ class HomePage extends StatelessWidget {
                                 )
                               ],
                             ),
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
-                                FaIcon(FontAwesomeIcons.github,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondaryContainer),
-                                FaIcon(FontAwesomeIcons.linkedin,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondaryContainer),
-                                FaIcon(FontAwesomeIcons.instagram,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondaryContainer),
+                                IconWidget(icon: FontAwesomeIcons.github),
+                                IconWidget(icon: FontAwesomeIcons.linkedin),
+                                IconWidget(icon: FontAwesomeIcons.instagram),
                               ],
                             ),
                           ],
@@ -169,6 +168,23 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class IconWidget extends StatelessWidget {
+  final IconData icon;
+
+  const IconWidget({
+    super.key,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: FaIcon(icon,
+          color: Theme.of(context).colorScheme.onSecondaryContainer),
+    );
+  }
+}
+
 class MainInfoWidget extends StatefulWidget {
   const MainInfoWidget({
     super.key,
@@ -179,8 +195,8 @@ class MainInfoWidget extends StatefulWidget {
 }
 
 class _MainInfoWidgetState extends State<MainInfoWidget> {
-
   late int selectedIndex;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -196,25 +212,26 @@ class _MainInfoWidgetState extends State<MainInfoWidget> {
         page = const AboutPage();
         break;
       case 1:
-        page = const Text("Page 2");
+        page = const Text("COMING SOON");
         break;
       case 2:
         page = const ExperiencePage();
         break;
-      default:
-        page = const Text("Page 1");
+      case 3:
+        page = const ContactMePage();
+        break;
     }
     return Card(
         child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.60,
             height: MediaQuery.of(context).size.height * 0.80,
             // full border
-            child:  Stack(
+            child: Stack(
               children: [
                 // navbar on top right
                 Positioned(
                   top: 0,
-                  right: 0 ,
+                  right: 0,
                   child: NavBar(
                     onTabChanged: (index) {
                       setState(() {
@@ -223,11 +240,7 @@ class _MainInfoWidgetState extends State<MainInfoWidget> {
                     },
                   ),
                 ),
-                 Container(
-                  child:
-                    page
-
-                ),
+                Container(child: page),
               ],
             )));
   }
@@ -236,8 +249,10 @@ class _MainInfoWidgetState extends State<MainInfoWidget> {
 // class for navbar
 class NavBar extends StatefulWidget {
   final Function(int) onTabChanged;
+
   const NavBar({
-    super.key, required this.onTabChanged,
+    super.key,
+    required this.onTabChanged,
   });
 
   @override
@@ -245,12 +260,10 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-
   @override
   void initState() {
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +276,7 @@ class _NavBarState extends State<NavBar> {
           bottomLeft: Radius.circular(10),
         ),
       ),
-      child:  Padding(
+      child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -277,14 +290,12 @@ class _NavBarState extends State<NavBar> {
               child: const Text(
                 "About me",
                 style: Styles.defaultTextStyle,
-
               ),
             ),
             InkWell(
               onTap: () {
                 setState(() {
                   widget.onTabChanged(1);
-
                 });
               },
               child: const Text(
