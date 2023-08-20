@@ -93,15 +93,17 @@ class SkillBox extends StatelessWidget {
 }
 
 class VerticalDevider extends StatelessWidget {
+  final double? height;
+  final double? width;
   const VerticalDevider({
-    super.key,
+    super.key, this.height, this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 5,
-      width: 50,
+      height: height ?? 5,
+      width: width ?? 50,
       decoration:  BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
